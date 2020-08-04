@@ -9,30 +9,34 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
-    private static final String DB_NAME = "book_provider.db";
-    private static final String DB_BOOK_TABLE_NAME = "book";
-    private static final String DB_USER_TABLE_NAME = "user";
+    public static final String DB_NAME = "book_provider.db";
+    public static final String DB_BOOK_TABLE_NAME = "book";
+    public static final String DB_USER_TABLE_NAME = "user";
+    private static final int DB_VERSION = 1;
 
     //sql commend
-    private static final String SQL_CREATE_BOOK_TABLE = "user";
-    private static final String SQL_CREATE_USER_TABLE = "user";
+    private static final String SQL_CREATE_BOOK_TABLE = "CREATE TABLE IF NOT EXISTS " + DB_BOOK_TABLE_NAME + "(_id INTEGER PRIMARY KEY," + "name TEXT)";
+    private static final String SQL_CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS " + DB_USER_TABLE_NAME + "(_id INTEGER PRIMARY KEY," + "name TEXT)";
 
 
     public DBHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+        super(context, DB_NAME, factory, DB_VERSION);
     }
 
     public DBHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version, @Nullable DatabaseErrorHandler errorHandler) {
-        super(context, name, factory, version, errorHandler);
+        super(context, DB_NAME, factory, DB_VERSION, errorHandler);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+        sqLiteDatabase.execSQL(SQL_CREATE_BOOK_TABLE);
+        sqLiteDatabase.execSQL(SQL_CREATE_USER_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+
+
 }

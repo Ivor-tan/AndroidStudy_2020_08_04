@@ -2,10 +2,13 @@ package com.example.client;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -23,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     private IBookManger iBookManger;
     private int number = 1;
+    private int book_id = 4;
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,8 +65,23 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.textView003).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri = Uri.parse("content://com.example.serviceapp.book.provider");
-                getContentResolver().query(uri, null, null, null, null);
+                Uri uri = Uri.parse("content://com.example.serviceapp.book.provider/book");
+                ContentValues values = new ContentValues();
+                values.put("_id", book_id++);
+                values.put("name", "book_test00" + book_id);
+                getContentResolver().insert(uri, values);
+            }
+        });
+        findViewById(R.id.textView004).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("content://com.example.serviceapp.book.provider/book");
+                Cursor cursor = getContentResolver().query(uri, new String[]{"_id", "name"}, null, null, null);
+                while (cursor.moveToNext()) {
+                    Log.d("tbq", "Cursor   book  ======> " + cursor.getInt(0));
+                    Log.d("tbq", "Cursor   book  ======> " + cursor.getString(1));
+                }
+                cursor.close();
             }
         });
     }

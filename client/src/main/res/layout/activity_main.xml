@@ -34,9 +34,20 @@
         android:layout_height="100dp"
         android:background="@drawable/bg_textview"
         android:gravity="center"
-        android:text="content_provider"
+        android:text="content_provider_insert"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView002" />
 
+
+    <TextView
+        android:id="@+id/textView004"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_textview"
+        android:gravity="center"
+        android:text="content_provider_query"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView003" />
 </androidx.constraintlayout.widget.ConstraintLayout>

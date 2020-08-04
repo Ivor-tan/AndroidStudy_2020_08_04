@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<!--    <action android:name="android.vehicle.intent.action.BLUETOOTH_SETTINGS" />-->
+<!--    <action android:name="android.vehicle.intent.action.WIFI_SETTINGS" />-->
+<!--    <action android:name="android.vehicle.intent.action.DISPLAY_SETTINGS" />-->
+<!--    <action android:name="android.vehicle.intent.action.AUDIO_SETTINGS" />-->
+<!--    <action android:name="android.vehicle.intent.action.SYSTEM_SETTINGS" />-->
+<!--    <action android:name="android.vehicle.intent.action.CLEAN_SETTINGS" />-->
+<!--    <action android:name="android.vehicle.intent.action.RESET_SETTINGS" />-->
+<!--    <action android:name="android.vehicle.intent.action.ABOUT_SETTINGS" />-->
+    <TextView
+        android:id="@+id/textView001"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_textview"
+        android:gravity="center"
+        android:text="Hello World!"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView002"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_textview"
+        android:gravity="center"
+        android:text="DISPLAY_SETTINGS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView001" />
+
+    <TextView
+        android:id="@+id/textView003"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_textview"
+        android:gravity="center"
+        android:text="AUDIO_SETTINGS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView002" />
+
+    <TextView
+        android:id="@+id/textView004"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_textview"
+        android:gravity="center"
+        android:text="SYSTEM_SETTINGS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView003" />
+
+    <TextView
+        android:id="@+id/textView005"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_textview"
+        android:gravity="center"
+        android:text="ABOUT_SETTINGS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView004" />
+
+    <TextView
+        android:id="@+id/textView006"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_textview"
+        android:gravity="center"
+        android:text="MessageTest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView005" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

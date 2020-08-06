@@ -33,10 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent();
-        intent.setPackage("com.example.serviceapp");
-        intent.setAction("com.example.serviceapp.action");
-        bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
+
 
         findViewById(R.id.textView001).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +79,30 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("tbq", "Cursor   book  ======> " + cursor.getString(1));
                 }
                 cursor.close();
+            }
+        });
+
+        findViewById(R.id.textView005).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setPackage("com.example.serviceapp");
+                intent.setAction("com.example.serviceapp.action");
+                bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
+            }
+        });
+
+        findViewById(R.id.textView006).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, TcpActivity.class));
+            }
+        });
+
+        findViewById(R.id.textView007).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, BinderPoolActivity.class));
             }
         });
     }

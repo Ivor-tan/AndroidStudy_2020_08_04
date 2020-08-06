@@ -39,7 +39,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView002" />
 
-
     <TextView
         android:id="@+id/textView004"
         android:layout_width="match_parent"
@@ -50,4 +49,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView003" />
+
+    <TextView
+        android:id="@+id/textView005"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_textview"
+        android:gravity="center"
+        android:text="bindingService"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView004" />
+
+    <TextView
+        android:id="@+id/textView006"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_textview"
+        android:gravity="center"
+        android:text="tcp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView005" />
+    <TextView
+        android:id="@+id/textView007"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_textview"
+        android:gravity="center"
+        android:text="BinderPool"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView006" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

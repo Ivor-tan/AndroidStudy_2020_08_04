@@ -9,6 +9,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.database.Observable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.test001.message.MessageTestActivity;
+import com.example.test001.remoteview.RemoteViewActivity;
 
 import org.w3c.dom.Text;
 
@@ -25,6 +27,7 @@ import java.lang.reflect.Field;
 public class MainActivity extends AppCompatActivity {
 
     Test001 test001 = new Test001();
+    Boolean test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.textView001).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
-
+//                finish();
+                startActivity(new Intent(MainActivity.this, GridViewActivity.class));
 //                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             }
         });
@@ -64,14 +67,32 @@ public class MainActivity extends AppCompatActivity {
 ////                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 //            }
 //        });
+        test = true;
         findViewById(R.id.textView002).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent("android.vehicle.intent.action.DISPLAY_SETTINGS");
+                Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.oushang.systemsettings", "com.oushang.systemsettings.view.AppMainActivity"));
                 startActivity(intent);
+                Log.d("tbq", "textView002: =========");
+//                test = !test;
             }
         });
+        Observable<Boolean> observable = new Observable<Boolean>() {
+            @Override
+            public void registerObserver(Boolean observer) {
+                super.registerObserver(observer);
+                Log.d("tbq", "registerObserver: =========");
+            }
+        };
+
+        while (true) {
+            if (test)
+                observable.registerObserver(test);
+            break;
+        }
+
+
         findViewById(R.id.textView003).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,6 +121,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, MessageTestActivity.class));
+            }
+        });
+        findViewById(R.id.textView007).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RemoteViewActivity.class));
             }
         });
     }

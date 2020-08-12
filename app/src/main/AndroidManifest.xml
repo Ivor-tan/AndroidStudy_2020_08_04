@@ -20,6 +20,8 @@
         </activity>
 
         <activity android:name=".message.MessageTestActivity" />
+        <activity android:name=".remoteview.RemoteViewActivity" />
+        <activity android:name=".GridViewActivity" />
 
         <service
             android:name=".message.MessengerService"

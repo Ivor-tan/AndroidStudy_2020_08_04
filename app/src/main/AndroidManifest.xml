@@ -23,6 +23,18 @@
         <activity android:name=".remoteview.RemoteViewActivity" />
         <activity android:name=".GridViewActivity" />
 
+        <activity android:name=".remoteview.RemoteViewTest001Activity" />
+        <activity
+            android:name=".remoteview.RemoteViewTest002Activity"
+            android:process=":remote" />
+
+        <receiver android:name=".remoteview.AppWidget">
+
+            <meta-data
+                android:name="android.appwidget.AppWidgetProvider"
+                android:resource="@xml/app_widget_info" />
+        </receiver>
+
         <service
             android:name=".message.MessengerService"
             android:process=":remote" />

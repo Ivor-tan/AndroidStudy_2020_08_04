@@ -1,28 +1,22 @@
 package com.example.test001;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ComponentName;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.database.Observable;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test001.message.MessageTestActivity;
 import com.example.test001.remoteview.RemoteViewActivity;
-
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Field;
+import com.example.test001.remoteview.RemoteViewTest001Activity;
+import com.example.test001.remoteview.RemoteViewTest002Activity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -67,31 +61,15 @@ public class MainActivity extends AppCompatActivity {
 ////                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 //            }
 //        });
-        test = true;
         findViewById(R.id.textView002).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.oushang.systemsettings", "com.oushang.systemsettings.view.AppMainActivity"));
                 startActivity(intent);
-                Log.d("tbq", "textView002: =========");
-//                test = !test;
+
             }
         });
-        Observable<Boolean> observable = new Observable<Boolean>() {
-            @Override
-            public void registerObserver(Boolean observer) {
-                super.registerObserver(observer);
-                Log.d("tbq", "registerObserver: =========");
-            }
-        };
-
-        while (true) {
-            if (test)
-                observable.registerObserver(test);
-            break;
-        }
-
 
         findViewById(R.id.textView003).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -18,5 +18,23 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/remoteView_textView002"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_textview"
+            android:gravity="center"
+            android:text="TestSendRemoteView"
+            app:layout_constraintTop_toBottomOf="@id/remoteView_textView001" />
+
+        <TextView
+            android:id="@+id/remoteView_textView003"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_textview"
+            android:gravity="center"
+            android:text="ChangeRemoteView"
+            app:layout_constraintTop_toBottomOf="@id/remoteView_textView002" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

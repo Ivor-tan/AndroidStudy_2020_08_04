@@ -12,3 +12,6 @@ http://sqliteadmin.orbmu2k.de/  SQLite查看工具
 https://www.cnblogs.com/qubaba/p/11558127.html  java中的 |=、&=、^=
 
 https://blog.csdn.net/augfun/article/details/82343249  简单理解Binder机制的原理
+
+https://www.jianshu.com/p/420629118c10  Android 动画总结
+https://github.com/REBOOTERS/AndroidAnimationExercise    Android 动画

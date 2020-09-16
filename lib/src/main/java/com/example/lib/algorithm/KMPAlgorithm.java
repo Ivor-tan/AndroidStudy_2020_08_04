@@ -135,6 +135,7 @@ public class KMPAlgorithm {
                 k = next[k];
             }
         }
+        System.out.print("1111=============>" + Arrays.toString(next) + "\n");
         return next;
     }
 }

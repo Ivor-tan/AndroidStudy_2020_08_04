@@ -3,6 +3,8 @@ package com.example.lib.algorithm;
 import java.util.Arrays;
 
 /**
+ * https://www.cnblogs.com/dusf/p/kmp.html
+ *
  * @desc KMP算法
  * 基本介绍：
  * （1）暴力匹配算法
@@ -32,20 +34,21 @@ public class KMPAlgorithm {
         }
         // KMP算法介绍
         // 字符串模板匹配值
-        str1 = "BBCABCDADABCDACDABDEADABCDABCDABDABADABCDAB";
-        str2 = "ABCDABC";
+        str1 = "BBCAABCDABCDABDABADABCDAB";
+        str2 = "ABABBCBDADASF";
 
         /*int[] next = kmpNext("ABCDABD");
         System.out.println("next=" + Arrays.toString(next));*/
-        index = KmpSearch(str1.trim().toCharArray(), str2.trim().toCharArray(), getNext(str2));
 //        index = KmpSearch(str1.trim().toCharArray(), str2.trim().toCharArray(), getNext(str2));
-        if (index != -1) {
-            System.out.println("找到了，位置===>" + index);
-        } else {
-            System.out.println("没有找到！");
-        }
-//        GetNext("ABCABC".toCharArray());
-
+//        index = KmpSearch(str1.trim().toCharArray(), str2.trim().toCharArray(), getNext(str2));
+//        if (index != -1) {
+//            System.out.println("找到了，位置===>" + index);
+//        } else {
+//            System.out.println("没有找到！");
+//        }
+        getNext1(str2);
+        getNext2(str2);
+        getNext3(str2);
     }
 
     private static int ViolentMatch(char[] s, char[] p) {
@@ -95,15 +98,16 @@ public class KMPAlgorithm {
     }
 
     //next数组为重点
-    private static int[] GetNext(char[] t) {
-        int[] next = new int[t.length];
+    private static int[] getNext1(String t) {
+        char[] m = t.toCharArray();
+        int[] next = new int[m.length];
         int j = 0, k = -1;
         next[0] = -1;
-        while (j < t.length - 1) {
-            if (k == -1 || t[j] == t[k]) {
+        while (j < m.length - 1) {
+            if (k == -1 || m[j] == m[k]) {
                 j++;
                 k++;
-                if (t[j] == t[k]) {
+                if (m[j] == m[k]) {
                     //当两个字符相同时，就跳过
                     next[j] = next[k];
                 } else {
@@ -113,11 +117,11 @@ public class KMPAlgorithm {
             } else k = next[k];
 
         }
-        System.out.print("1111=============>" + Arrays.toString(next) + "\n");
+        System.out.print(t + "--------->Next[]======1111=======>" + Arrays.toString(next) + "\n");
         return next;
     }
 
-    public static int[] getNext(String ps) {
+    public static int[] getNext2(String ps) {
         char[] p = ps.toCharArray();
         int[] next = new int[p.length];
         next[0] = -1;
@@ -134,8 +138,33 @@ public class KMPAlgorithm {
             } else {
                 k = next[k];
             }
+            System.out.print("while2=======>j--->" + j + "====>k--->" + k + "\n");
+
         }
-        System.out.print("1111=============>" + Arrays.toString(next) + "\n");
+        System.out.print(ps + "--------->Next[]======2222=======>" + Arrays.toString(next) + "\n");
+        return next;
+    }
+
+    public static int[] getNext3(String ps) {
+        char[] p = ps.toCharArray();
+        int[] next = new int[p.length];
+        next[0] = -1;
+        int j = 0;
+        int k = -1;
+
+        while (j < p.length - 1) {
+
+            if (k == -1 || p[j] == p[k]) {
+                k++;
+                j++;
+
+                next[j] = k;
+
+            } else {
+                k = next[k];
+            }
+        }
+        System.out.print(ps + "--------->Next[]======3333=======>" + Arrays.toString(next) + "\n");
         return next;
     }
 }
